@@ -1,0 +1,5 @@
+kagglehub
+pandas
+langchain 
+langchain-ollama
+tensorflow

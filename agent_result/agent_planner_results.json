@@ -1,0 +1,22 @@
+{
+  "hypothesis": "The supplier with the highest defect rate in Raw Materials is Delta_Logistics.",
+  "assumptions": [
+    "Raw Materials is a specific category of items",
+    "Defect rate is a relevant KPI for this category"
+  ],
+  "reasoning": "Based on the data_dictionary, Raw Materials is a specific category of items, and Defect rate is a relevant KPI for this category. Therefore, it is reasonable to assume that the supplier with the highest defect rate in Raw Materials is Delta_Logistics, which is one of the suppliers listed in the data_dictionary.",
+  "steps": [
+    {
+      "goal": "Get the defect rate for each supplier in Raw Materials",
+      "needs_sql": true
+    },
+    {
+      "goal": "Filter out Cancelled orders",
+      "needs_sql": true
+    },
+    {
+      "goal": "Get the supplier with the highest defect rate",
+      "needs_sql": true
+    }
+  ]
+}

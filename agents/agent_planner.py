@@ -3,6 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama   
 from pathlib import Path
 from pydantic import BaseModel, Field
+import json
 
 class Step(BaseModel):
     goal: str = Field(description="What this step should find out")
@@ -43,5 +44,10 @@ def planner(question):
         "question": question
         })
     
+    path = Path("./agent_result/agent_planner_results.json")
+    path.parent.mkdir(parents=True, exist_ok=True)   # creates the folder if missing
+    
+    with open("./agent_result/agent_planner_results.json", "w", encoding="utf-8") as f:
+        json.dump(result.model_dump(), f, ensure_ascii=False, indent=2, default=str)  # Use default=str to handle non-serializable objects like datetime
     return result
 
